@@ -9,3 +9,7 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 <small>Click en el logo para ingresar</small>
 
 <a href="https://chat.whatsapp.com/CahqMxQULz5DMCK2pu2YP4">Grupo de Whatsapp</a>
+
+
+<b>Grupos</b>
+<a href="https://docs.google.com/spreadsheets/d/1LuK7WOfv8E_b3Q57StjROObG0nDDuEvhKtWLXjCqdOM/edit?usp=sharing">Grupos del curso</a>
