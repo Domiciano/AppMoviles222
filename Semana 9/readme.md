@@ -21,3 +21,6 @@ android{
 ...
 }
 ```
+
+### Paso 3: Configurar Firebase
+
