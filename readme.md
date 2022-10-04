@@ -18,3 +18,6 @@ https://github.com/Domiciano/Listas222
 
 <b>Grupos</b>
 <a href="https://docs.google.com/spreadsheets/d/1LuK7WOfv8E_b3Q57StjROObG0nDDuEvhKtWLXjCqdOM/edit?usp=sharing">Grupos del curso</a>
+
+<b>Notas</b>
+<a href="https://docs.google.com/spreadsheets/d/1HrVZ9f8jK0Ou6gMS5r-crR9JG8t6d7a0gbZmhY2IXek/edit?usp=sharing">Notas del curso</a>
