@@ -2,7 +2,13 @@
 
 
 ```
-data class City(var id:String, var country:String, var city:String, var population:Int, var sectors:ArrayList<String>)
+data class City(
+    var id: String = "",
+    var country: String = "",
+    var city: String = "",
+    var population: Int = 0,
+    var sectors: ArrayList<String> = arrayListOf() 
+)
 ```
 
 Use estos datos de entrada
