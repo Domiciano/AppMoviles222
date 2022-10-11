@@ -94,7 +94,7 @@ Use estos datos de entrada
 
 ```
 
-### Tenga en cuenta las siguientes reglas
+## Tenga en cuenta las siguientes reglas
 
 1. Una query sólo puede aplicar un sólo filtro de no igualdad (!=, <, <=, >, >=) a un campo específico.
 
@@ -102,6 +102,6 @@ Use estos datos de entrada
 
 3. No se pueden usar DOS o más ArrayContains
 
-4. Puede hacer 2 o más equalTo (==) para encontrar un dato en la db
+4. Puede hacer 2 o más equalTo (==) en una query
 
-5. Yo hacer una consulta con filtro de igual y de rango
+5. Puede hacer varios filtros de igualdad y uno sólo de rango.
