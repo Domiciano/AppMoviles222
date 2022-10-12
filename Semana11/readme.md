@@ -105,3 +105,118 @@ Use estos datos de entrada
 4. Puede hacer 2 o más equalTo (==) en una query
 
 5. Puede hacer varios filtros de igualdad y uno sólo de rango.
+
+
+
+## Queries en clase
+
+```
+package edu.co.icesi.queriesfirestore
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val outputTV:TextView = findViewById(R.id.outputTV)
+
+        lifecycleScope.launch(Dispatchers.IO){
+
+            //Pedir un objeto
+            val result1 = Firebase.firestore
+                .collection("cities")
+                .document("26c1a9c7")
+                .get().await()
+            val tokio = result1.toObject(City::class.java)
+            tokio?.let {
+                withContext(Dispatchers.Main){outputTV.text = tokio.country}
+            }
+
+            //Pedir una coleccion
+            val result2 = Firebase.firestore
+                .collection("cities")
+                .get().await()
+            var cityNames = ""
+            for(doc in result2.documents){
+                val obj = doc.toObject(City::class.java)
+                cityNames += obj?.city+"\n"
+            }
+            withContext(Dispatchers.Main){outputTV.text = cityNames}
+
+            val result3 = Firebase.firestore
+                .collection("cities")
+                .whereEqualTo("country", "Colombia")
+                .get().await()
+            cityNames = ""
+            for(doc in result3.documents){
+                val obj = doc.toObject(City::class.java)
+                cityNames += obj?.city+"\n"
+            }
+            withContext(Dispatchers.Main){outputTV.text = cityNames}
+
+            val result4 = Firebase.firestore
+                .collection("cities")
+                .whereLessThan("population", 1000000)
+                .get().await()
+            cityNames = ""
+            for(doc in result4.documents){
+                val obj = doc.toObject(City::class.java)
+                cityNames += obj?.city+"\n"
+            }
+            withContext(Dispatchers.Main){outputTV.text = cityNames}
+
+            val result5 = Firebase.firestore
+                .collection("cities")
+                .orderBy("city")
+                .limit(4)
+                .get().await()
+            cityNames = ""
+            for(doc in result5.documents){
+                val obj = doc.toObject(City::class.java)
+                cityNames += obj?.city+"\n"
+            }
+            withContext(Dispatchers.Main){outputTV.text = cityNames}
+
+            val result6 = Firebase.firestore
+                .collection("cities")
+                .whereArrayContains("sectors", "Z")
+                .get().await()
+            cityNames = ""
+            for(doc in result6.documents){
+                val obj = doc.toObject(City::class.java)
+                cityNames += obj?.city+"\n"
+            }
+            withContext(Dispatchers.Main){outputTV.text = cityNames}
+
+            val result7 = Firebase.firestore
+                .collection("cities")
+                .whereEqualTo("country", "Colombia")
+                .orderBy("city")
+                .get().await()
+
+        }
+
+
+    }
+}
+
+data class City(
+    var id: String = "",
+    var country: String = "",
+    var city: String = "",
+    var population: Int = 0,
+    var sectors: ArrayList<String> = arrayListOf()
+)
+```
