@@ -86,6 +86,24 @@ object NotificationUtil {
 }
 ```
 
+## Hacer el POST Request desde Android
+
+```
+    fun POSTtoFCM(json: String): String {
+        val url = URL("https://fcm.googleapis.com/fcm/send")
+        val client = url.openConnection() as HttpsURLConnection
+        client.requestMethod = "POST"
+        client.setRequestProperty("Content-Type", "application/json")
+        client.setRequestProperty("Authorization", "key=$FCM_KEY")
+        client.doOutput = true
+        client.outputStream.bufferedWriter().use {
+            it.write(json)
+            it.flush()
+        }
+        return client.inputStream.bufferedReader().readText()
+    }
+```
+
 
 ## Referencias
 1. https://firebase.google.com/docs/cloud-messaging/fcm-architecture?hl=es-419
