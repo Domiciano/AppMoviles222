@@ -104,6 +104,17 @@ object NotificationUtil {
     }
 ```
 
+## Payload del mensaje a FCM
+```
+{
+  "to": "/topics/alfa",
+  "data": {
+    "name": "Alfa"
+  }
+}
+```
+
+
 ## Recursos
 [Generador de token OAuth Google](https://github.com/Domiciano/GoogleOAuthTokenGen) <br>
 Este repositorio muestra cómo se puede generar un short-time token para poder enviar solicitudes a FCM
