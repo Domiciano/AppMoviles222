@@ -106,6 +106,6 @@ object NotificationUtil {
 
 
 ## Referencias
-[1. Arquitectura de FCM](https://firebase.google.com/docs/cloud-messaging/fcm-architecture?hl=es-)
+[1. Arquitectura de FCM](https://firebase.google.com/docs/cloud-messaging/fcm-architecture?hl=es-) <br>
 [2. Migración de Legacy a V1](https://firebase.google.com/docs/cloud-messaging/migrate-v1)
 
