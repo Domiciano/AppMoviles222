@@ -104,6 +104,10 @@ object NotificationUtil {
     }
 ```
 
+## Recursos
+[Generador de token OAuth Google](https://github.com/Domiciano/GoogleOAuthTokenGen) <br>
+Este repositorio muestra cómo se puede generar un short-time token para poder enviar solicitudes a FCM
+
 
 ## Referencias
 [1. Arquitectura de FCM](https://firebase.google.com/docs/cloud-messaging/fcm-architecture?hl=es-) <br>
